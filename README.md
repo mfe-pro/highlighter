@@ -11,14 +11,18 @@
 1. Import the script from jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/mfe-pro-highlighter@latest/dist/highlighter.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mfe-pro-highlighter@latest/dist/highlighter.min.js"></script>
 ```
 
 2. Call the function to start the highlight:
 
 ```html
 <script>
-  initMFEHighlighter({ org: '@myOrg', primaryColor: '#ff0000', secondaryColor: '#0000ff' });
+   MFEHighlighter.init({
+      org: '@test',
+      primaryColor: '#ff0000',
+      secondaryColor: '#00ff00'
+    });
 </script>
 ```
 

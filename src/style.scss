@@ -6,7 +6,7 @@ $highlight-z-index: 15500;
   transition: $properties 0.3s ease;
 }
 
-.mfe-highlight-container {
+.mfe-highlighter-container {
   position: absolute;
   display: block;
 
@@ -16,7 +16,7 @@ $highlight-z-index: 15500;
 }
 
 @mixin gradient-border {
-  background: linear-gradient(to left top, var(--mfe-highlight-secondary-color, $secondary-color), var(--mfe-highlight-primary-color, $primary-color));
+  background: linear-gradient(to left top, var(--mfe-highlighter-secondary-color, $secondary-color), var(--mfe-highlighter-primary-color, $primary-color));
   border-radius: inherit;
   content: "";
   inset: 0;
@@ -28,7 +28,7 @@ $highlight-z-index: 15500;
   z-index: -1;
 }
 
-.mfe-highlight {
+.mfe-highlighter {
   position: absolute;
   border: none;
   z-index: 1;
@@ -40,25 +40,25 @@ $highlight-z-index: 15500;
   }
 }
 
-.mfe-border {
+.mfe-highlighter-border {
   position: absolute;
 }
 
-.mfe-bar {
+.mfe-highlighter-bar {
   position: absolute;
   z-index: $highlight-z-index;
   left: 0;
   top: -34px;
   padding: 8px 0;
 
-  .mfe-bar-content {
+  .mfe-highlighter-bar-content {
     border-radius: 0.5em;
     display: flex;
     white-space: nowrap;
     width: fit-content;
 
     > a {
-      background: var(--mfe-highlight-primary-color, $primary-color);
+      background: var(--mfe-highlighter-primary-color, $primary-color);
       line-height: 1.5;
       margin-right: 0.125em;
       padding: 0 0.5em;

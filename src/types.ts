@@ -1,5 +1,3 @@
-import {initMFEHighlighter} from "./highlighter";
-
 export interface HighlightOptions {
   org: string;
   primaryColor?: string;
@@ -9,7 +7,7 @@ export interface HighlightOptions {
 declare global {
   interface Window {
     MFEHighlighter: {
-      initMFEHighlighter: (options?: HighlightOptions) => void;
+      init: (options?: HighlightOptions) => void;
     };
   }
 }

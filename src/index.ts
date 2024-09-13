@@ -1,5 +1,5 @@
-import { initMFEHighlighter } from './highlighter';
+import { init } from './highlighter';
 
 window.MFEHighlighter = {
-  initMFEHighlighter,
+  init,
 };
