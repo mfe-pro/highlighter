@@ -1,4 +1,4 @@
-import { initMFEHighlighter, injectCSS } from './highlighter';
+import { initMFEHighlighter } from './highlighter';
 
 window.MFEHighlighter = {
   initMFEHighlighter,
