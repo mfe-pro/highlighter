@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mfe-pro/highlighter/compare/v1.1.0...v1.1.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* force unit-tests ([b6f7836](https://github.com/mfe-pro/highlighter/commit/b6f7836996938fd84b28e363e28c038e9bad3a8f))
+
 # [1.1.0](https://github.com/mfe-pro/highlighter/compare/v1.0.0...v1.1.0) (2024-09-13)
 
 
