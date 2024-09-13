@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2](https://github.com/mfe-pro/highlighter/compare/v1.1.1...v1.1.2) (2024-09-13)
+
+
+### Bug Fixes
+
+* fix ci/cd ([e977220](https://github.com/mfe-pro/highlighter/commit/e977220082f95ffb1e2026f80df71f8365f55673))
+* fix ci/cd ([4b8fe9c](https://github.com/mfe-pro/highlighter/commit/4b8fe9c296ed3e42a05acd6d6a5417fb4f654c39))
+* update readme ([9083c0a](https://github.com/mfe-pro/highlighter/commit/9083c0a6754173e068e4c9cc73203a571e38a3eb))
+
 ## [1.1.1](https://github.com/mfe-pro/highlighter/compare/v1.1.0...v1.1.1) (2024-09-13)
 
 
