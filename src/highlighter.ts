@@ -19,9 +19,9 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
       <div class="mfe-highlighter-border"></div>
       <div class="mfe-highlighter-bar">
         <div class="mfe-highlighter-bar-content">
-          <a>&#127970; ${org}</a>
+          <a>${org}</a>
           <a>
-            <span>&#128101; ${owner}.${mfeName}</span>
+            <span>${owner}.${mfeName}</span>
             ${version}
           </a>
         </div>
@@ -33,10 +33,12 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
 }
 
 
-export function init(options: HighlightOptions = { org: '@mfe-pro', primaryColor: '#4fedeb', secondaryColor: '#0958ee' }) {
+export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: 'white', barColor: '#0958ee', primaryColor: '#4fedeb', secondaryColor: '#0958ee' }) {
   injectCSS();
-  const { primaryColor = '#4fedeb', secondaryColor = '#0958ee' } = options;
+  const { primaryColor = '#ff6995', secondaryColor = '#3ecdff', fontColor = 'black', barColor = '#0958ee' } = options;
 
+  document.documentElement.style.setProperty('--mfe-highlighter-font-color', fontColor);
+  document.documentElement.style.setProperty('--mfe-highlighter-bar-color', barColor);
   document.documentElement.style.setProperty('--mfe-highlighter-primary-color', primaryColor);
   document.documentElement.style.setProperty('--mfe-highlighter-secondary-color', secondaryColor);
 
@@ -49,18 +51,23 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', primaryColor
 
     if (!name || !owner) return;
 
+    element.style.setProperty('--mfe-highlighter-font-color', fontColor);
+    element.style.setProperty('--mfe-highlighter-bar-color', barColor);
     element.style.setProperty('--mfe-highlighter-primary-color', primaryColor);
     element.style.setProperty('--mfe-highlighter-secondary-color', secondaryColor);
 
     element.addEventListener('mouseover', () => {
       const container = createInfoBar(options.org, owner, name, version);
-      const { top, left, right, bottom, height, width } = element.getBoundingClientRect();
+      const { top, left, height, width } = element.getBoundingClientRect();
       const infoBar = container.querySelector('.mfe-highlighter-bar') as HTMLElement | null;
       const infoBarHeight = 40;
 
+      const pageTop = top + window.scrollY;
+      const pageLeft = left + window.scrollX;
+
       element.parentNode?.insertBefore(container, element.nextSibling);
 
-      if(infoBar) {
+      if (infoBar) {
         infoBar.style.top = top < infoBarHeight ? `${height - 5}px` : '-34px';
       }
 
@@ -70,12 +77,9 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', primaryColor
         firstChild.style.height = `${height}px`;
       }
 
-      container.style.top = `${top}px`;
-      container.style.left = `${left}px`;
-      container.style.right = `${right}px`;
-      container.style.bottom = `${bottom}px`;
+      container.style.top = `${pageTop}px`;
+      container.style.left = `${pageLeft}px`;
     });
-
     element.addEventListener('mouseout', () => {
       document.querySelector('.mfe-highlighter-container')?.remove();
     });

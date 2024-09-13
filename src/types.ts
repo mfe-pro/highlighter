@@ -1,5 +1,7 @@
 export interface HighlightOptions {
   org: string;
+  barColor?: string;
+  fontColor?: string;
   primaryColor?: string;
   secondaryColor?: string;
 }

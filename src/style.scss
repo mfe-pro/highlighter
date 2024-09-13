@@ -58,7 +58,8 @@ $highlight-z-index: 15500;
     width: fit-content;
 
     > a {
-      background: var(--mfe-highlighter-primary-color, $primary-color);
+      background: var(--mfe-highlighter-bar-color, $secondary-color);
+      color: var(--mfe-highlighter-font-color, $secondary-color);
       line-height: 1.5;
       margin-right: 0.125em;
       padding: 0 0.5em;
