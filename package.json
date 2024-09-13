@@ -1,0 +1,67 @@
+{
+  "name": "mfe-pro-highlighter",
+  "version": "1.0.0",
+  "description": "Library for highlighting micro frontends with dynamic tooltips and gradient borders.",
+  "main": "dist/highlighter.js",
+  "typings": "./dist/index.d.ts",
+  "packageManager": "pnpm@9.10",
+  "private": false,
+  "scripts": {
+    "build:scss": "sass src/style.scss dist/mfe-highlighter.css",
+    "build:ts": "rollup -c",
+    "build": "pnpm run build:scss && pnpm run build:ts",
+    "commit": "cz",
+    "clean": "rm -rf dist",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "publish": "npx semantic-release --no-ci",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests",
+    "test:cov": "jest --coverage --passWithNoTests",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand --passWithNoTests",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.6",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/jest": "29.5.13",
+    "@types/node": "^22.5.4",
+    "@types/supertest": "^6.0.2",
+    "codecov": "^3.8.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.0.11",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.3.2",
+    "rollup": "^4.21.3",
+    "rollup-plugin-string": "^3.0.0",
+    "sass": "^1.32.0",
+    "semantic-release": "^24.0.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.5",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "keywords": [
+    "microfrontend",
+    "highlight",
+    "jsdelivr"
+  ],
+  "author": "EliseuSantos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfe-pro/highlighter.git"
+  }
+}
