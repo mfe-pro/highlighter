@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/mfe-pro/highlighter/compare/v1.2.1...v1.2.2) (2024-09-13)
+
+
+### Bug Fixes
+
+* fix position border on move scroll ([6542b8f](https://github.com/mfe-pro/highlighter/commit/6542b8f7ed785cef4d048a6c8a01ec05f6046f41))
+
 ## [1.2.1](https://github.com/mfe-pro/highlighter/compare/v1.2.0...v1.2.1) (2024-09-13)
 
 
