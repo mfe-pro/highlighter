@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/mfe-pro/highlighter/branch/main/graph/badge.svg?token=IBB6PC8S7C)](https://codecov.io/gh/mfe-pro/highlighter)
 
 # MFE Pro Highlighter
 
