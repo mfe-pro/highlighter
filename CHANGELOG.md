@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.1.0](https://github.com/mfe-pro/highlighter/compare/v1.0.0...v1.1.0) (2024-09-13)
+
+
+### Features
+
+* enhancement on scss and icons ([b5f6995](https://github.com/mfe-pro/highlighter/commit/b5f69951cfd22bc2aa56341693069ae429735fa5))
+
 # 1.0.0 (2024-09-13)
 
 
