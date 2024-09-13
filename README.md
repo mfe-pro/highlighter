@@ -17,7 +17,7 @@
 
 ```html
 <script>
-  initMFEHighlighter({ org: '@test', primaryColor: '#ff0000', secondaryColor: '#0000ff' });
+  initMFEHighlighter({ org: '@myOrg', primaryColor: '#ff0000', secondaryColor: '#0000ff' });
 </script>
 ```
 
