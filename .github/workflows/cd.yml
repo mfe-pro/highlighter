@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 jobs:
-  BuildAndDeploy:
+  CD:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
