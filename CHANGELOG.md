@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.4](https://github.com/mfe-pro/highlighter/compare/v1.1.3...v1.1.4) (2024-09-13)
+
+
+### Bug Fixes
+
+* fix output files ([159000e](https://github.com/mfe-pro/highlighter/commit/159000e4eddce83465f94106d54142a8a983ed88))
+* fixed release npm ([cefb6d3](https://github.com/mfe-pro/highlighter/commit/cefb6d3edabde26db9b2ace0a3beec64d48a5be5))
+
 ## [1.1.3](https://github.com/mfe-pro/highlighter/compare/v1.1.2...v1.1.3) (2024-09-13)
 
 
