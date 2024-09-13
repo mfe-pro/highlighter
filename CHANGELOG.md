@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/mfe-pro/highlighter/compare/v1.1.2...v1.1.3) (2024-09-13)
+
+
+### Performance Improvements
+
+* update output files on publish ([008da3f](https://github.com/mfe-pro/highlighter/commit/008da3fbb1414ab1396c1ebdcdc99bdd8bcbb234))
+
 ## [1.1.2](https://github.com/mfe-pro/highlighter/compare/v1.1.1...v1.1.2) (2024-09-13)
 
 
