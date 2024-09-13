@@ -9,7 +9,12 @@ module.exports = {
                 "changelogTitle": "# Changelog"
             }
         ],
-        "@semantic-release/npm",
+        [
+          "@semantic-release/npm",
+            {
+                "pkgRoot": "dist"
+            }
+        ],
         '@semantic-release/github',
         [
             "@semantic-release/git",
