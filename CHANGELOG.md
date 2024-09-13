@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.2.0](https://github.com/mfe-pro/highlighter/compare/v1.1.4...v1.2.0) (2024-09-13)
+
+
+### Features
+
+* enhancement names ([01895d9](https://github.com/mfe-pro/highlighter/commit/01895d980cf790d771d1a9f86a8ae0a3d814733a))
+
 ## [1.1.4](https://github.com/mfe-pro/highlighter/compare/v1.1.3...v1.1.4) (2024-09-13)
 
 
