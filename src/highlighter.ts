@@ -12,7 +12,7 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
   const infoBar = document.createElement('div');
   infoBar.className = 'mfe-highlight-container';
 
-  const version = mfeVersion ? `<span>&#128187; @v${mfeVersion}</span>` : '';
+  const version = mfeVersion ? `<span>@v${mfeVersion}</span>` : '';
 
   infoBar.innerHTML = `
     <div class="mfe-highlight">
@@ -21,7 +21,7 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
         <div class="mfe-bar-content">
           <a>&#127970; ${org}</a>
           <a>
-            <span>&#128100; ${owner}.${mfeName}</span>
+            <span>&#128101; ${owner}.${mfeName}</span>
             ${version}
           </a>
         </div>

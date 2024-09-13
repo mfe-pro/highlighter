@@ -1,3 +1,11 @@
+$primary-color: #0958ee;
+$secondary-color: #4fedeb;
+$highlight-z-index: 15500;
+
+@mixin smooth-transition($properties...) {
+  transition: $properties 0.3s ease;
+}
+
 .mfe-highlight-container {
   position: absolute;
   display: block;
@@ -5,6 +13,19 @@
   * {
     pointer-events: none !important;
   }
+}
+
+@mixin gradient-border {
+  background: linear-gradient(to left top, var(--mfe-highlight-secondary-color, $secondary-color), var(--mfe-highlight-primary-color, $primary-color));
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+  position: absolute;
+  z-index: -1;
 }
 
 .mfe-highlight {
@@ -15,18 +36,7 @@
   padding: 4px;
 
   &::before {
-    background: linear-gradient(to left top, var(--mfe-highlight-secondary-color, #4fedeb), var(--mfe-highlight-primary-color, #0958ee));
-    border-radius: inherit;
-    content: "";
-    inset: 0;
-    -webkit-mask-image: -webkit-linear-gradient(#fff 0%, #fff 100%);
-    -webkit-mask-origin: content;
-    -webkit-mask-clip: content;
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding: 2px;
-    position: absolute;
-    z-index: -1;
+    @include gradient-border;
   }
 }
 
@@ -36,33 +46,33 @@
 
 .mfe-bar {
   position: absolute;
-  z-index: 15500;
+  z-index: $highlight-z-index;
   left: 0;
   top: -34px;
   padding: 8px 0;
 
   .mfe-bar-content {
-    border-radius: .5em;
+    border-radius: 0.5em;
     display: flex;
     white-space: nowrap;
     width: fit-content;
 
     > a {
-      background: var(--mfe-highlight-primary-color, #ff6995);
+      background: var(--mfe-highlight-primary-color, $primary-color);
       line-height: 1.5;
-      margin-right: .125em;
-      padding: 0 .5em;
+      margin-right: 0.125em;
+      padding: 0 0.5em;
       transform: translateZ(0);
-      transition: filter .3s, background-color .3s;
+      @include smooth-transition(filter, background-color);
 
       &:first-child {
-        border-bottom-left-radius: .5em;
-        border-top-left-radius: .5em;
+        border-bottom-left-radius: 0.5em;
+        border-top-left-radius: 0.5em;
       }
 
       &:last-child {
-        border-bottom-right-radius: .5em;
-        border-top-right-radius: .5em;
+        border-bottom-right-radius: 0.5em;
+        border-top-right-radius: 0.5em;
         margin-right: 0;
       }
     }
