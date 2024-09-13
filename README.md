@@ -20,13 +20,10 @@
 <script>
    MFEHighlighter.init({
       org: '@test',
+      barColor: '#ff0000',
+      fontColor: '#ff0000',
       primaryColor: '#ff0000',
       secondaryColor: '#00ff00'
     });
 </script>
 ```
-
-## Customization
-
-- **Org**: Name of your organization
-- **Primary and Secondary Colors**: Pass the primary and secondary colors as parameters to customize the gradient border.
