@@ -10,7 +10,7 @@
 1. Import the script from jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mfe-pro/mfe-pro-highlighter@latest/dist/mfe-highlighter.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mfe-pro-highlighter@latest/dist/highlighter.js"></script>
 ```
 
 2. Call the function to start the highlight:
