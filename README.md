@@ -1,4 +1,7 @@
+
 # MFE Pro Highlighter
+
+![MFE Pro Highlighter](./logo.png)
 
 **MFE Pro Highlighter** is a library to highlight micro frontend components with gradient borders and dynamic tooltips.
 
@@ -7,14 +10,14 @@
 1. Import the script from jsDelivr:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/EliseuSantos/mfe-pro-highlighter@latest/dist/mfe-highlighter.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mfe-pro/mfe-pro-highlighter@latest/dist/mfe-highlighter.js"></script>
 ```
 
 2. Call the function to start the highlight:
 
 ```html
 <script>
-  initMFEHighlighter({ primaryColor: '#ff0000', secondaryColor: '#0000ff' });
+  initMFEHighlighter({ org: '@test', primaryColor: '#ff0000', secondaryColor: '#0000ff' });
 </script>
 ```
 
