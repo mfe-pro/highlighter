@@ -21,7 +21,7 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
         <div class="mfe-highlighter-bar-content">
           <a>${org}</a>
           <a>
-            <span>${owner}.${mfeName}</span>
+            <span>${owner} | ${mfeName}</span>
             ${version}
           </a>
         </div>
@@ -62,8 +62,10 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: '
       const infoBar = container.querySelector('.mfe-highlighter-bar') as HTMLElement | null;
       const infoBarHeight = 40;
 
-      const pageTop = top + window.scrollY;
-      const pageLeft = left + window.scrollX;
+      const parent = element.offsetParent;
+      const parentRect = parent ? parent.getBoundingClientRect() : { top: 0, left: 0 };
+      const pageTop = (top + window.scrollY) - parentRect.top;
+      const pageLeft =( left + window.scrollX) - parentRect.left;
 
       element.parentNode?.insertBefore(container, element.nextSibling);
 

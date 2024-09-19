@@ -17,9 +17,12 @@
 2. Call the function to start the highlight:
 
 ```html
+  <div class="block" data-mfe-highlighter="true" data-mfe-name="my-package-name" data-mfe-owner="team-a"
+           data-mfe-version="1.0.0">Test Element
+  </div>
 <script>
    MFEHighlighter.init({
-      org: '@test',
+      org: '@my-org',
       barColor: '#ff0000',
       fontColor: '#ff0000',
       primaryColor: '#ff0000',
