@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/mfe-pro/highlighter/compare/v1.2.2...v1.2.3) (2024-09-19)
+
+
+### Bug Fixes
+
+* fixed position if element use position absolute and others enhancements ([adcd4ce](https://github.com/mfe-pro/highlighter/commit/adcd4ce53f30e73896323190ce99988e855fb2a7))
+
 ## [1.2.2](https://github.com/mfe-pro/highlighter/compare/v1.2.1...v1.2.2) (2024-09-13)
 
 

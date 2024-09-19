@@ -32,7 +32,7 @@ describe('MFE Highlighter', () => {
 
     const infoBar = document.querySelector('.mfe-highlighter-bar');
     expect(infoBar).not.toBeNull();
-    expect(infoBar?.textContent).toContain('example-owner');
+    expect(infoBar?.textContent).toContain('owner-1 | example-owner');
   });
 
   test('should not display version if it is null or empty', () => {
@@ -48,7 +48,6 @@ describe('MFE Highlighter', () => {
 
     const infoBar = document.querySelector('.mfe-highlighter-bar');
     expect(infoBar).not.toBeNull();
-
     expect(infoBar?.textContent).not.toContain('@v');
   });
 
@@ -71,19 +70,58 @@ describe('MFE Highlighter', () => {
     element.dispatchEvent(mouseoutEvent);
 
     const infoBar = document.querySelector('.mfe-highlighter-bar');
-    debugger
     expect(infoBar).toBeNull();
   });
 
   test('should return early if name or owner is missing', () => {
     document.body.innerHTML = `
-    <div data-mfe-highlighter="true" data-mfe-owner="owner-without-name"></div>
-    <div data-mfe-highlighter="true" data-mfe-name="name-without-owner"></div>
-  `;
+      <div data-mfe-highlighter="true" data-mfe-owner="owner-without-name"></div>
+      <div data-mfe-highlighter="true" data-mfe-name="name-without-owner"></div>
+    `;
 
     init();
 
     const infoBars = document.querySelectorAll('.mfe-highlighter-bar');
     expect(infoBars.length).toBe(0);
+  });
+
+  test('should dynamically add highlight to newly added elements', async () => {
+  init();
+
+  const newElement = document.createElement('div');
+  newElement.setAttribute('data-mfe-highlighter', 'true');
+  newElement.setAttribute('data-mfe-name', 'dynamic-owner');
+  newElement.setAttribute('data-mfe-owner', 'owner-dynamic');
+  newElement.textContent = 'Dynamic Component';
+
+  document.body.appendChild(newElement);
+
+  // Usar um timeout para garantir que o observer tenha tempo para agir
+  await new Promise(resolve => setTimeout(resolve, 100));
+
+  const mouseoverEvent = new Event('mouseover');
+  newElement.dispatchEvent(mouseoverEvent);
+
+  const infoBar = document.querySelector('.mfe-highlighter-bar');
+  expect(infoBar).not.toBeNull();
+  expect(infoBar?.textContent).toContain('owner-dynamic | dynamic-owner');
+});
+
+  test('should not duplicate event listeners when hovering multiple times', () => {
+    document.body.innerHTML = `
+      <div data-mfe-highlighter="true" data-mfe-name="example-owner" data-mfe-owner="owner-1" data-mfe-version="1.0.0">Component 1</div>
+    `;
+
+    init();
+
+    const element = document.querySelector('[data-mfe-highlighter="true"]') as HTMLElement;
+
+    const mouseoverEvent = new Event('mouseover');
+    element.dispatchEvent(mouseoverEvent);
+    element.dispatchEvent(mouseoverEvent); // Dispatch again to check duplication
+
+    const infoBar = document.querySelector('.mfe-highlighter-bar');
+    expect(infoBar).not.toBeNull();
+    expect(infoBar?.textContent).toContain('owner-1 | example-owner');
   });
 });
