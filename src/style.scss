@@ -31,7 +31,7 @@ $highlight-z-index: 15500;
 .mfe-highlighter {
   position: absolute;
   border: none;
-  z-index: 1;
+  z-index: 999999999;
   box-sizing: border-box;
   padding: 4px;
 

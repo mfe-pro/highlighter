@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MFE Highlighter Example</title>
+  <script src="../dist/highlighter.js"></script>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+
+      nav {
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+      }
+
+      nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      nav ul li {
+          display: inline;
+          margin-right: 20px;
+      }
+
+      nav ul li a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      .container {
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+      }
+
+      .content {
+          display: flex;
+          flex: 1;
+          padding: 20px;
+          gap: 20px;
+      }
+
+      .left-column, .right-column {
+          flex: 1;
+          background-color: #f0f0f0;
+          padding: 15px;
+      }
+
+      .left-column {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+
+      .left-column .block {
+          background-color: #ddd;
+          padding: 15px;
+          margin-bottom: 10px;
+      }
+
+      .main-content {
+          flex: 2;
+          background-color: #e9e9e9;
+          padding: 15px;
+      }
+
+      .footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 10px;
+      }
+  </style>
+</head>
+<body>
+
+<nav data-mfe-highlighter="true" data-mfe-name="top-content" data-mfe-owner="team-blue" data-mfe-version="2.0.0">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="content">
+    <div class="left-column" style="
+    position: absolute;
+    width: 150px;
+    height: 100vh;
+">
+      <div class="block" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+           data-mfe-version="2.0.0">Vertical Block 1
+      </div>
+      <div class="block" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+           data-mfe-version="2.0.0">Vertical Block 2
+      </div>
+      <div class="block" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+           data-mfe-version="2.0.0">Vertical Block 3
+      </div>
+    </div>
+
+    <div class="main-content" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+         data-mfe-version="2.0.0">
+      <h1>Main Content Area</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel sem nec urna interdum blandit nec ut
+        metus.
+        Cras accumsan, turpis et interdum tincidunt, felis lectus lacinia erat, sed dapibus mauris nunc sed orci.</p>
+      <p>Aenean in ultricies orci. Vestibulum nec enim nec risus vehicula scelerisque. Proin bibendum eros sed magna
+        tempus condimentum.
+        Aliquam erat volutpat. Suspendisse accumsan est ac tortor tincidunt egestas.</p>
+    </div>
+
+    <div class="right-column" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+         data-mfe-version="2.0.0">
+      <h2>Right Column</h2>
+      <ul>
+        <li data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red" data-mfe-version="2.0.0">Right
+          Item 1
+        </li>
+        <li data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red" data-mfe-version="2.0.0">Right
+          Item 2
+        </li>
+        <li data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red" data-mfe-version="2.0.0">Right
+          Item 3
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer" data-mfe-highlighter="true" data-mfe-name="menu" data-mfe-owner="team-red"
+       data-mfe-version="2.0.0">
+    <p>&copy; 2024 Your Company</p>
+  </div>
+</div>
+<script>
+  MFEHighlighter.init({
+    org: '@test',
+    barColor: 'red',
+    fontColor: 'white',
+    primaryColor: '#ff6995',
+    secondaryColor: '#3ecdff',
+  });
+</script>
+
+</body>
+</html>
