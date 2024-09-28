@@ -1,8 +1,5 @@
 name: CI
 on:
-  workflow_call:
-  push:
-  pull_request:
 jobs:
   TestAndCoverage:
     runs-on: ubuntu-latest
