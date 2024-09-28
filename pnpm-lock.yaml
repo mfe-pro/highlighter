@@ -80,6 +80,9 @@ importers:
       rollup-plugin-string:
         specifier: ^3.0.0
         version: 3.0.0
+      rollup-plugin-watch:
+        specifier: ^1.0.4
+        version: 1.0.4(rollup@4.22.5)
       sass:
         specifier: ^1.79.3
         version: 1.79.3
@@ -2583,6 +2586,12 @@ packages:
 
   rollup-plugin-string@3.0.0:
     resolution: {integrity: sha512-vqyzgn9QefAgeKi+Y4A7jETeIAU1zQmS6VotH6bzm/zmUQEnYkpIGRaOBPY41oiWYV4JyBoGAaBjYMYuv+6wVw==}
+
+  rollup-plugin-watch@1.0.4:
+    resolution: {integrity: sha512-Wyoi1InAROIA4P8ipTQ0GE1l5wsbbgEUGy0alEKLPgrgC02IuGtCyys99mWj0JLzJwSBFCZbJ4vQIascBBU3gQ==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      rollup: ^2.x.x || ^3.x.x || ^4.x.x
 
   rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
@@ -5913,6 +5922,11 @@ snapshots:
   rollup-plugin-string@3.0.0:
     dependencies:
       rollup-pluginutils: 2.8.2
+
+  rollup-plugin-watch@1.0.4(rollup@4.22.5):
+    dependencies:
+      '@rollup/pluginutils': 5.1.2(rollup@4.22.5)
+      rollup: 4.22.5
 
   rollup-pluginutils@2.8.2:
     dependencies:
