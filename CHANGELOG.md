@@ -1,5 +1,17 @@
 # Changelog
 
+# [1.3.0](https://github.com/mfe-pro/highlighter/compare/v1.2.3...v1.3.0) (2024-09-28)
+
+
+### Bug Fixes
+
+* prevent duplicate event listeners by tracking processed elements ([85ba1e7](https://github.com/mfe-pro/highlighter/commit/85ba1e74f43897fac1cf34ccde2d8d55c552ae99))
+
+
+### Features
+
+* added build:watch ([434b1fb](https://github.com/mfe-pro/highlighter/commit/434b1fb94a26eb788e40317279a586e1df25dab5))
+
 ## [1.2.3](https://github.com/mfe-pro/highlighter/compare/v1.2.2...v1.2.3) (2024-09-19)
 
 
