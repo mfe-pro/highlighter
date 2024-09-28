@@ -95,14 +95,14 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: '
   document.documentElement.style.setProperty('--mfe-highlighter-primary-color', primaryColor || '');
   document.documentElement.style.setProperty('--mfe-highlighter-secondary-color', secondaryColor || '');
 
-  const processedElements = new Set<HTMLElement>(); // Crie um conjunto para rastrear elementos processados
+  const processedElements = new Set<HTMLElement>();
 
   const observer = new MutationObserver(() => {
     const elements = document.querySelectorAll('[data-mfe-highlighter="true"]') as unknown as HTMLElement[];
     elements.forEach((element) => {
-      if (!processedElements.has(element)) { // Verifique se o elemento já foi processado
-        applyHighlight(options, element, processedElements); // Passa todos os argumentos
-        processedElements.add(element); // Adicione o elemento ao conjunto
+      if (!processedElements.has(element)) {
+        applyHighlight(options, element, processedElements);
+        processedElements.add(element);
       }
     });
   });
@@ -113,5 +113,5 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: '
   });
 
   const elements = document.querySelectorAll('[data-mfe-highlighter="true"]') as unknown as HTMLElement[];
-  elements.forEach((element) => applyHighlight(options, element, processedElements)); // Também passa o conjunto aqui
+  elements.forEach((element) => applyHighlight(options, element, processedElements));
 }

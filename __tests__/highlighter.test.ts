@@ -96,7 +96,6 @@ describe('MFE Highlighter', () => {
 
   document.body.appendChild(newElement);
 
-  // Usar um timeout para garantir que o observer tenha tempo para agir
   await new Promise(resolve => setTimeout(resolve, 100));
 
   const mouseoverEvent = new Event('mouseover');
@@ -118,7 +117,7 @@ describe('MFE Highlighter', () => {
 
     const mouseoverEvent = new Event('mouseover');
     element.dispatchEvent(mouseoverEvent);
-    element.dispatchEvent(mouseoverEvent); // Dispatch again to check duplication
+    element.dispatchEvent(mouseoverEvent);
 
     const infoBar = document.querySelector('.mfe-highlighter-bar');
     expect(infoBar).not.toBeNull();
