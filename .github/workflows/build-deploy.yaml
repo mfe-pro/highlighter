@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Tests
+      - name: Build Lib
         run: pnpm build
 
       - name: Run Semantic Release
