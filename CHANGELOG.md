@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/mfe-pro/highlighter/compare/v1.3.0...v1.3.1) (2024-10-02)
+
+
+### Bug Fixes
+
+* fixed import lib on example ([678a55f](https://github.com/mfe-pro/highlighter/commit/678a55ff223d80a5bef6f2b3b39014a1e45f7c87))
+
 # [1.3.0](https://github.com/mfe-pro/highlighter/compare/v1.2.3...v1.3.0) (2024-09-28)
 
 
