@@ -62,8 +62,8 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement, process
 
     const parent = element.offsetParent;
     const parentRect = parent ? parent.getBoundingClientRect() : { top: 0, left: 0 };
-    const pageTop = (top + window.scrollY) - parentRect.top;
-    const pageLeft = ( left + window.scrollX) - parentRect.left;
+    const pageTop = top - parentRect.top;
+    const pageLeft = left - parentRect.left;
 
     element.parentNode?.insertBefore(container, element.nextSibling);
 
