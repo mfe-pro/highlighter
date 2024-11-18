@@ -1,5 +1,7 @@
-name: CI
+name: Test Coverage
 on:
+   push:
+    branches: ['*']
 jobs:
   TestAndCoverage:
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-name: CD
+name: Deploy
 
 on:
   workflow_call:
@@ -45,11 +45,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Lib
-        run: pnpm build
-
       - name: Run Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release --no-ci
+
+      - name: Build Package
+        run: pnpm build
+
+      - name: Publish Package
+        run: pnpm publish --no-git-checks || true
