@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/mfe-pro/highlighter/compare/v1.3.1...v1.3.2) (2024-11-18)
+
+
+### Bug Fixes
+
+* update position highlighter on request-animation-frame ([e93bba6](https://github.com/mfe-pro/highlighter/commit/e93bba64da7f7389152dd5e0c7724373bc77efd1))
+
 ## [1.3.1](https://github.com/mfe-pro/highlighter/compare/v1.3.0...v1.3.1) (2024-10-02)
 
 
