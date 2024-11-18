@@ -36,7 +36,7 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement, process
   if (processedElements.has(element)) return;
   processedElements.add(element);
 
-  const name = element.getAttribute('data-mfe-name');
+  const name = element.getAttribute('data-mfe-name') || element.getAttribute('data-component-name');
   const owner = element.getAttribute('data-mfe-owner');
   const version = element.getAttribute('data-mfe-version') ?? null;
 
@@ -54,18 +54,17 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement, process
   element.style.setProperty('--mfe-highlighter-primary-color', primaryColor || '');
   element.style.setProperty('--mfe-highlighter-secondary-color', secondaryColor || '');
 
-  element.addEventListener('mouseover', () => {
-    const container = createInfoBar(options.org, owner, name, version);
-    const { top, left, height, width } = element.getBoundingClientRect();
-    const infoBar = container.querySelector('.mfe-highlighter-bar') as HTMLElement | null;
-    const infoBarHeight = 40;
+  const container = createInfoBar(options.org, owner, name, version);
+  const infoBar = container.querySelector('.mfe-highlighter-bar') as HTMLElement | null;
+  const infoBarHeight = 40;
 
-    const parent = element.offsetParent;
-    const parentRect = parent ? parent.getBoundingClientRect() : { top: 0, left: 0 };
-    const pageTop = top - parentRect.top;
-    const pageLeft = left - parentRect.left;
+  let animationFrameId: number;
 
-    element.parentNode?.insertBefore(container, element.nextSibling);
+  const updatePosition = () => {
+    const { top, left, width, height } = element.getBoundingClientRect();
+
+    const adjustedTop = top + window.scrollY;
+    const adjustedLeft = left + window.scrollX;
 
     if (infoBar) {
       infoBar.style.top = top < infoBarHeight ? `${height - 5}px` : '-34px';
@@ -77,12 +76,21 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement, process
       firstChild.style.height = `${height}px`;
     }
 
-    container.style.top = `${pageTop}px`;
-    container.style.left = `${pageLeft}px`;
+    container.style.position = 'absolute';
+    container.style.top = `${adjustedTop}px`;
+    container.style.left = `${adjustedLeft}px`;
+
+    animationFrameId = requestAnimationFrame(updatePosition);
+  };
+
+  element.addEventListener('mouseover', () => {
+    document.body.appendChild(container);
+    updatePosition();
   });
 
   element.addEventListener('mouseout', () => {
-    document.querySelector('.mfe-highlighter-container')?.remove();
+    cancelAnimationFrame(animationFrameId);
+    container.remove();
   });
 }
 
