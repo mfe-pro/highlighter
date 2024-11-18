@@ -24,7 +24,7 @@ describe('MFE Highlighter', () => {
 
     init();
 
-    const elements = document.querySelectorAll('[data-mfe-highlighter="true"]');
+    const elements = document?.querySelectorAll('[data-mfe-highlighter="true"]');
     expect(elements.length).toBe(2);
 
     const mouseoverEvent = new Event('mouseover');
@@ -81,7 +81,7 @@ describe('MFE Highlighter', () => {
 
     init();
 
-    const infoBars = document.querySelectorAll('.mfe-highlighter-bar');
+    const infoBars = document?.querySelectorAll('.mfe-highlighter-bar');
     expect(infoBars.length).toBe(0);
   });
 
