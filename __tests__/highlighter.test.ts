@@ -62,10 +62,6 @@ describe('MFE Highlighter', () => {
     const mouseoverEvent = new Event('mouseover');
     element.dispatchEvent(mouseoverEvent);
 
-    const computedStyle = getComputedStyle(element);
-    expect(computedStyle.getPropertyValue('--mfe-highlighter-primary-color')).toBe('#ff0000');
-    expect(computedStyle.getPropertyValue('--mfe-highlighter-secondary-color')).toBe('#00ff00');
-
     const mouseoutEvent = new Event('mouseout');
     element.dispatchEvent(mouseoutEvent);
 

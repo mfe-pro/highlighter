@@ -140,13 +140,17 @@
   </div>
 </div>
 <script>
-  MFEHighlighter.init({
+  window.MFEHighlighterConfig = {
     org: '@test',
     barColor: 'red',
     fontColor: 'white',
     primaryColor: '#ff6995',
     secondaryColor: '#3ecdff',
-  });
+    buttonActiveColor: '#ff6995',
+    buttonInactiveColor: '#3ecdff',
+    iconActiveColor: '#ffffff',
+    iconInactiveColor: '#000000',
+  };
 </script>
 
 </body>
