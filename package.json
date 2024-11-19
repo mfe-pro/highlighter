@@ -1,6 +1,6 @@
 {
   "name": "mfe-pro-highlighter",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Library for highlighting micro frontends with dynamic tooltips and gradient borders.",
   "main": "dist/highlighter.js",
   "typings": "./dist/index.d.ts",

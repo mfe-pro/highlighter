@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/mfe-pro/highlighter/compare/v1.3.3...v1.3.4) (2024-11-19)
+
+
+### Bug Fixes
+
+* fixed params ([638cbba](https://github.com/mfe-pro/highlighter/commit/638cbbaa029cdccf9ae7b48d6807cf7031d0d194))
+
 ## [1.3.3](https://github.com/mfe-pro/highlighter/compare/v1.3.2...v1.3.3) (2024-11-18)
 
 
