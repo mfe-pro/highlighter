@@ -29,6 +29,11 @@
     fontColor: 'white',
     primaryColor: '#ff6995',
     secondaryColor: '#3ecdff',
+    buttonActiveColor: '#ff6995',
+    buttonInactiveColor: '#3ecdff',
+    iconActiveColor: '#ffffff',
+    iconInactiveColor: '#000000',
+    autoInit: true
   });
 </script>
 ```

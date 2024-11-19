@@ -84,14 +84,15 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement) {
   eventListeners.set(element, { mouseover: mouseoverListener, mouseout: mouseoutListener });
 }
 
-function createFloatingButton() {
+function createFloatingButton(autoInit = true) {
   let isActive = false;
 
-  const config: HighlightOptions | any = window.MFEHighlighterConfig || {
+  const config: any = window.MFEHighlighterConfig || {
     buttonActiveColor: '#3ecdff',
     buttonInactiveColor: '#ff6995',
     iconActiveColor: '#ffffff',
     iconInactiveColor: '#000000',
+    autoInit: true,
   };
 
   const getActiveIcon = (color: string) => `
@@ -111,6 +112,7 @@ function createFloatingButton() {
     </svg>
   `;
 
+  // Cria o botão
   const button = document.createElement('button');
   button.style.position = 'fixed';
   button.style.bottom = '20px';
@@ -123,6 +125,7 @@ function createFloatingButton() {
   button.style.cursor = 'pointer';
   button.style.zIndex = '1000';
   button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+  button.style.display = config.autoInit ? 'block' : 'none'; // Inicialmente oculto se autoInit for false
   button.style.backgroundColor = config.buttonInactiveColor;
   button.innerHTML = getInactiveIcon(config.iconInactiveColor);
 
@@ -140,6 +143,10 @@ function createFloatingButton() {
   });
 
   document.body.appendChild(button);
+
+  window.MFEHighlighter.showButton = () => {
+    button.style.display = 'block';
+  };
 }
 
 export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: 'white', barColor: '#0958ee', primaryColor: '#4fedeb', secondaryColor: '#0958ee' }) {
@@ -194,4 +201,7 @@ export function destroy() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', createFloatingButton);
+document.addEventListener('DOMContentLoaded', () => {
+  const config = window.MFEHighlighterConfig || { autoInit: true };
+  createFloatingButton(config.autoInit);
+});

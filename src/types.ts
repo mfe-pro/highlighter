@@ -8,12 +8,14 @@ export interface HighlightOptions {
   buttonInactiveColor?: string;
   iconActiveColor?: string;
   iconInactiveColor?: string;
+  autoInit?: boolean;
 }
 
 declare global {
   interface Window {
     MFEHighlighter: {
       init: (options?: HighlightOptions) => void;
+      showButton?: () => void;
       destroy: () => void;
     };
     MFEHighlighterConfig: HighlightOptions
