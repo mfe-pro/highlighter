@@ -55,7 +55,7 @@ jobs:
         run: pnpm build
 
       - name: Publish Package
-        run: pnpm publish --no-git-checks || true
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --no-git-checks || true

@@ -1,5 +1,6 @@
-import { init } from './highlighter';
+import { init, destroy } from './highlighter';
 
 window.MFEHighlighter = {
   init,
+  destroy
 };

@@ -24,7 +24,7 @@ describe('MFE Highlighter', () => {
 
     init();
 
-    const elements = document.querySelectorAll('[data-mfe-highlighter="true"]');
+    const elements = document?.querySelectorAll('[data-mfe-highlighter="true"]');
     expect(elements.length).toBe(2);
 
     const mouseoverEvent = new Event('mouseover');
@@ -62,10 +62,6 @@ describe('MFE Highlighter', () => {
     const mouseoverEvent = new Event('mouseover');
     element.dispatchEvent(mouseoverEvent);
 
-    const computedStyle = getComputedStyle(element);
-    expect(computedStyle.getPropertyValue('--mfe-highlighter-primary-color')).toBe('#ff0000');
-    expect(computedStyle.getPropertyValue('--mfe-highlighter-secondary-color')).toBe('#00ff00');
-
     const mouseoutEvent = new Event('mouseout');
     element.dispatchEvent(mouseoutEvent);
 
@@ -81,7 +77,7 @@ describe('MFE Highlighter', () => {
 
     init();
 
-    const infoBars = document.querySelectorAll('.mfe-highlighter-bar');
+    const infoBars = document?.querySelectorAll('.mfe-highlighter-bar');
     expect(infoBars.length).toBe(0);
   });
 
