@@ -169,18 +169,15 @@ export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: '
 }
 
 export function destroy() {
-  // Remove estilos globais
   document.documentElement.style.removeProperty('--mfe-highlighter-font-color');
   document.documentElement.style.removeProperty('--mfe-highlighter-bar-color');
   document.documentElement.style.removeProperty('--mfe-highlighter-primary-color');
   document.documentElement.style.removeProperty('--mfe-highlighter-secondary-color');
 
-  // Remove os elementos destacados
   processedElements.forEach((element) => {
     const container = element.querySelector('.mfe-highlighter-container');
     if (container) container.remove();
 
-    // Remove os listeners
     const listeners = eventListeners.get(element);
     if (listeners) {
       element.removeEventListener('mouseover', listeners.mouseover);
@@ -191,7 +188,6 @@ export function destroy() {
 
   processedElements.clear();
 
-  // Desativa o observer
   if (observer) {
     observer.disconnect();
     observer = null;
