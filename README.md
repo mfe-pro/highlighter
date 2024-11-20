@@ -23,7 +23,7 @@
      data-mfe-version="1.0.0">Test Element
 </div>
 <script>
-  MFEHighlighter.init({
+  window.MFEHighlighterConfig = {
     org: '@test',
     barColor: 'red',
     fontColor: 'white',
@@ -34,6 +34,6 @@
     iconActiveColor: '#ffffff',
     iconInactiveColor: '#000000',
     autoInit: true
-  });
+  };
 </script>
 ```
