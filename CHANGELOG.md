@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.5](https://github.com/mfe-pro/highlighter/compare/v1.3.4...v1.3.5) (2024-11-20)
+
+
+### Bug Fixes
+
+* remove test temporary ([6972b9f](https://github.com/mfe-pro/highlighter/commit/6972b9f6650bb4fea278af30b488a58930dfd980))
+
 ## [1.3.4](https://github.com/mfe-pro/highlighter/compare/v1.3.3...v1.3.4) (2024-11-19)
 
 
