@@ -12,22 +12,24 @@ function injectCSS() {
   document.head.appendChild(style);
 }
 
-function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: string | null): HTMLDivElement {
+function createInfoBar(org: string, owner: string | null, mfeName: string | null, mfeVersion: string | null): HTMLDivElement {
+  org = org || 'N/A';
+  owner = owner || 'N/A';
+  mfeName = mfeName || 'N/A';
+  mfeVersion = mfeVersion || 'N/A';
+
   const infoBar = document.createElement('div');
   infoBar.className = 'mfe-highlighter-container';
-
-  const version = mfeVersion ? `<span>@v${mfeVersion}</span>` : '';
 
   infoBar.innerHTML = `
     <div class="mfe-highlighter">
       <div class="mfe-highlighter-border"></div>
       <div class="mfe-highlighter-bar">
         <div class="mfe-highlighter-bar-content">
-          <a>${org}</a>
-          <a>
-            <span>${owner} | ${mfeName}</span>
-            ${version}
-          </a>
+          <a href="https://github.com/${org}" target="_blank">${org}</a>
+          <a href="https://github.com/${org}/teams/${owner}" target="_blank">${owner}</a>
+          <a href="https://github.com/${org}/${mfeName}" target="_blank">${mfeName}</a>
+          <a href="https://github.com/${org}/${mfeName}/releases/tag/${mfeVersion}" target="_blank">${mfeVersion}</a>
         </div>
       </div>
     </div>
@@ -36,7 +38,7 @@ function createInfoBar(org: string, owner: string, mfeName: string, mfeVersion: 
   return infoBar;
 }
 
-function updatePosition(element: HTMLElement, container: HTMLElement, infoBar: HTMLElement | null) {
+export function updatePosition(element: HTMLElement, container: HTMLElement, infoBar: HTMLElement | null) {
   const { top, left, width, height } = element.getBoundingClientRect();
   const adjustedTop = top + window.scrollY;
   const adjustedLeft = left + window.scrollX;
@@ -61,10 +63,8 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement) {
   processedElements.add(element);
 
   const name = element.getAttribute('data-mfe-name') || element.getAttribute('data-component-name');
-  const owner = element.getAttribute('data-mfe-owner');
-  const version = element.getAttribute('data-mfe-version') ?? null;
-
-  if (!name || !owner) return;
+  const owner = element.getAttribute('data-mfe-owner') || 'N/A';
+  const version = element.getAttribute('data-mfe-version') || 'N/A';
 
   const container = createInfoBar(options.org, owner, name, version);
   const infoBar = container.querySelector('.mfe-highlighter-bar') as HTMLElement | null;
@@ -84,16 +84,17 @@ function applyHighlight(options: HighlightOptions, element: HTMLElement) {
   eventListeners.set(element, { mouseover: mouseoverListener, mouseout: mouseoutListener });
 }
 
-function createFloatingButton(autoInit = true) {
+export function createFloatingButton(autoInit = true) {
   let isActive = false;
 
-  const config: any = window.MFEHighlighterConfig || {
+  const config: any = mergeObjects(window.MFEHighlighterConfig, {
     buttonActiveColor: '#3ecdff',
     buttonInactiveColor: '#ff6995',
     iconActiveColor: '#ffffff',
     iconInactiveColor: '#000000',
+    marginBottom: '150px',
     autoInit: true,
-  };
+  });
 
   const getActiveIcon = (color: string) => `
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50%; height: 50%; display: block; margin: auto;">
@@ -112,10 +113,9 @@ function createFloatingButton(autoInit = true) {
     </svg>
   `;
 
-  // Cria o botão
   const button = document.createElement('button');
   button.style.position = 'fixed';
-  button.style.bottom = '20px';
+  button.style.bottom = config.marginBottom;
   button.style.right = '20px';
   button.style.width = '60px';
   button.style.height = '60px';
@@ -125,7 +125,7 @@ function createFloatingButton(autoInit = true) {
   button.style.cursor = 'pointer';
   button.style.zIndex = '1000';
   button.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-  button.style.display = config.autoInit ? 'block' : 'none'; // Inicialmente oculto se autoInit for false
+  button.style.display = config.autoInit ? 'block' : 'none';
   button.style.backgroundColor = config.buttonInactiveColor;
   button.innerHTML = getInactiveIcon(config.iconInactiveColor);
 
@@ -149,7 +149,23 @@ function createFloatingButton(autoInit = true) {
   };
 }
 
-export function init(options: HighlightOptions = { org: '@mfe-pro', fontColor: 'white', barColor: '#0958ee', primaryColor: '#4fedeb', secondaryColor: '#0958ee' }) {
+function mergeObjects(obj1: any, obj2: any) {
+  let merged = { ...obj1 };
+
+  for (const key in obj2) {
+    if (merged[key] === undefined || merged[key] === null)
+      merged[key] = obj2[key];
+  }
+  return merged;
+}
+
+export function init(options: HighlightOptions = {
+  org: '@mfe-pro',
+  fontColor: 'white',
+  barColor: '#0958ee',
+  primaryColor: '#4fedeb',
+  secondaryColor: '#0958ee',
+}) {
   injectCSS();
 
   document.documentElement.style.setProperty('--mfe-highlighter-font-color', options.fontColor || '');

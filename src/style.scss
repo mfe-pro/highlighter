@@ -12,6 +12,9 @@ $highlight-z-index: 15500;
 
   * {
     pointer-events: none !important;
+    a {
+      text-decoration: auto !important;
+    }
   }
 }
 
@@ -25,6 +28,7 @@ $highlight-z-index: 15500;
   mask-composite: exclude;
   padding: 2px;
   position: absolute;
+  margin: -3px;
   z-index: -1;
 }
 
